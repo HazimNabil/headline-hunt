@@ -1,7 +1,12 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const HeadlineHunt());
+  runApp(
+    DevicePreview(
+      builder: (context) => const HeadlineHunt(),
+    ),
+  );
 }
 
 class HeadlineHunt extends StatelessWidget {
@@ -9,6 +14,11 @@ class HeadlineHunt extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
+      home: const Scaffold(),
+    );
   }
 }
