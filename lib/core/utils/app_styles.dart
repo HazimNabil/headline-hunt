@@ -1,49 +1,68 @@
 import 'package:flutter/material.dart';
+import 'package:headline_hunt/core/utils/size_config.dart';
 
 class AppStyles {
-  static const styleBold18 = TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.bold,
-  );
+  static TextStyle styleBold18(BuildContext context) {
+    return TextStyle(
+      fontSize: SizeConfig.getResponsiveFontSize(context, 18),
+      fontWeight: FontWeight.bold,
+    );
+  }
 
-  static const styleRegular18 = TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.normal,
-  );
+  static TextStyle styleRegular18(BuildContext context) {
+    return TextStyle(
+      fontSize: SizeConfig.getResponsiveFontSize(context, 18),
+      fontWeight: FontWeight.normal,
+    );
+  }
 
-  static const styleNormal12 = TextStyle(
-    fontSize: 12,
-    fontWeight: FontWeight.normal,
-    fontStyle: FontStyle.italic,
-  );
+  static TextStyle styleNormal12(BuildContext context) {
+    return TextStyle(
+      fontSize: SizeConfig.getResponsiveFontSize(context, 12),
+      fontWeight: FontWeight.normal,
+      fontStyle: FontStyle.italic,
+    );
+  }
 
-  static const styleBold15 = TextStyle(
-    fontSize: 15,
-    fontWeight: FontWeight.bold,
-  );
+  static TextStyle styleBold15(BuildContext context) {
+    return TextStyle(
+      fontSize: SizeConfig.getResponsiveFontSize(context, 15),
+      fontWeight: FontWeight.bold,
+    );
+  }
 
-  static const styleMedium15 = TextStyle(
-    fontSize: 15,
-    fontWeight: FontWeight.w500,
-  );
+  static TextStyle styleMedium15(BuildContext context) {
+    return TextStyle(
+      fontSize: SizeConfig.getResponsiveFontSize(context, 15),
+      fontWeight: FontWeight.w500,
+    );
+  }
 
-  static const styleMedium14 = TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeight.w500,
-  );
+  static TextStyle styleMedium14(BuildContext context) {
+    return TextStyle(
+      fontSize: SizeConfig.getResponsiveFontSize(context, 14),
+      fontWeight: FontWeight.w500,
+    );
+  }
 
-  static const styleBold13 = TextStyle(
-    fontSize: 13,
-    fontWeight: FontWeight.bold,
-  );
+  static TextStyle styleBold13(BuildContext context) {
+    return TextStyle(
+      fontSize: SizeConfig.getResponsiveFontSize(context, 13),
+      fontWeight: FontWeight.bold,
+    );
+  }
 
-  static const styleMedium13 = TextStyle(
-    fontSize: 13,
-    fontWeight: FontWeight.w500,
-  );
+  static TextStyle styleMedium13(BuildContext context) {
+    return TextStyle(
+      fontSize: SizeConfig.getResponsiveFontSize(context, 13),
+      fontWeight: FontWeight.w500,
+    );
+  }
 
-  static const styleRegular15 = TextStyle(
-    fontSize: 15,
-    fontWeight: FontWeight.normal,
-  );
+  static TextStyle styleRegular15(BuildContext context) {
+    return TextStyle(
+      fontSize: SizeConfig.getResponsiveFontSize(context, 15),
+      fontWeight: FontWeight.normal,
+    );
+  }
 }
