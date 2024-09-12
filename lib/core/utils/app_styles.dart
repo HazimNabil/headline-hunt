@@ -3,6 +3,14 @@ import 'package:headline_hunt/core/utils/app_colors.dart';
 import 'package:headline_hunt/core/utils/size_config.dart';
 
 class AppStyles {
+  static TextStyle styleBold22(BuildContext context) {
+    return TextStyle(
+      fontSize: SizeConfig.getResponsiveFontSize(context, 22),
+      fontWeight: FontWeight.bold,
+      color: AppColors.primaryColor,
+    );
+  }
+
   static TextStyle styleBold18(BuildContext context) {
     return TextStyle(
       fontSize: SizeConfig.getResponsiveFontSize(context, 18),
