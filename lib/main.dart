@@ -1,6 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:headline_hunt/core/utils/app_colors.dart';
 
 void main() {
   runApp(
@@ -23,6 +24,10 @@ class HeadlineHunt extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           locale: DevicePreview.locale(context),
           builder: DevicePreview.appBuilder,
+          theme: ThemeData(
+            primaryColor: AppColors.primaryColor,
+            scaffoldBackgroundColor: AppColors.backgroundColor,
+          ),
           home: const Scaffold(),
         );
       },
