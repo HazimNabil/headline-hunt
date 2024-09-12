@@ -81,3 +81,4 @@ flutter_assets:
   filename: images.dart
   ignore_comments: true
   classname: Images
+  field_prefix: 
