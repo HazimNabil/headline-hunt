@@ -17,12 +17,12 @@ class SplashViewBody extends StatelessWidget {
             Images.imagesAppLogo,
             height: 64,
             width: 64,
-          ).animate().fade(duration: 1.75.seconds),
+          ).animate().fade(duration: 1.seconds),
           const SizedBox(height: 16),
           Text(
             'Headline Hunt',
             style: AppStyles.styleBold22(context),
-          ).animate().slide(duration: 1.75.seconds),
+          ).animate().slide(duration: 1.seconds),
         ],
       ),
     );
