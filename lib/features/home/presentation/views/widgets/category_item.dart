@@ -4,8 +4,13 @@ import 'package:headline_hunt/core/utils/app_styles.dart';
 
 class CategoryItem extends StatelessWidget {
   final String category;
+  final bool isActive;
 
-  const CategoryItem({super.key, required this.category});
+  const CategoryItem({
+    super.key,
+    required this.category,
+    required this.isActive,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +20,16 @@ class CategoryItem extends StatelessWidget {
         horizontal: 15,
       ),
       decoration: BoxDecoration(
-        color: AppColors.secondaryBackgroundColor,
+        color: isActive
+            ? AppColors.primaryColor
+            : AppColors.secondaryBackgroundColor,
         borderRadius: BorderRadius.circular(40),
       ),
       child: Text(
         category,
-        style: AppStyles.styleMedium14(context),
+        style: AppStyles.styleMedium14(context).copyWith(
+          color: isActive ? AppColors.backgroundColor : null,
+        ),
       ),
     );
   }

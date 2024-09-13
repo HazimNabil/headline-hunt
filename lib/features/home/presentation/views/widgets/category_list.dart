@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:headline_hunt/features/home/presentation/views/widgets/category_item.dart';
 
-class CategoryList extends StatelessWidget {
+class CategoryList extends StatefulWidget {
+  const CategoryList({super.key});
+
+  @override
+  State<CategoryList> createState() => _CategoryListState();
+}
+
+class _CategoryListState extends State<CategoryList> {
   final categories = const [
     'General',
     'Business',
@@ -13,7 +20,7 @@ class CategoryList extends StatelessWidget {
     'Science',
   ];
 
-  const CategoryList({super.key});
+  int activeIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +36,17 @@ class CategoryList extends StatelessWidget {
     );
   }
 
-  Widget buildCategoryItem(index) {
+  Widget buildCategoryItem(int index) {
     var isLast = index == categories.length - 1;
     return Padding(
       padding: EdgeInsets.only(right: isLast ? 0 : 10),
-      child: CategoryItem(category: categories[index]),
+      child: GestureDetector(
+        onTap: () => setState(() => activeIndex = index),
+        child: CategoryItem(
+          category: categories[index],
+          isActive: activeIndex == index,
+        ),
+      ),
     );
   }
 }
