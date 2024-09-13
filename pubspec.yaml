@@ -32,6 +32,7 @@ dependencies:
   device_preview: ^1.2.0
   flutter:
     sdk: flutter
+  flutter_animate: ^4.5.0
   flutter_svg: ^2.0.10+1
   google_fonts: ^6.2.1
 
@@ -81,4 +82,4 @@ flutter_assets:
   filename: images.dart
   ignore_comments: true
   classname: Images
-  field_prefix: 
+  field_prefix: null
