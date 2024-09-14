@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:headline_hunt/core/utils/app_colors.dart';
 import 'package:headline_hunt/core/utils/app_styles.dart';
+import 'package:headline_hunt/core/utils/images.dart';
 
 class ArticleTileInfo extends StatelessWidget {
   const ArticleTileInfo({super.key});
@@ -41,7 +43,7 @@ class ArticleTileInfo extends StatelessWidget {
                 style: AppStyles.styleMedium13(context),
               ),
               const Spacer(),
-              const Icon(Icons.bookmark_outline),
+              SvgPicture.asset(Images.imagesBookmarkUnselected),
             ],
           ),
         ],
