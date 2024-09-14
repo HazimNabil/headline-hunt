@@ -13,6 +13,12 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(context),
       body: const HomeViewBody(),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: AppColors.backgroundColor,
+        selectedItemColor: AppColors.primaryColor,
+        unselectedItemColor: AppColors.primaryColor,
+        items: List.generate(3, buildNavBarItem),
+      ),
     );
   }
 
@@ -31,6 +37,22 @@ class HomeView extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  BottomNavigationBarItem buildNavBarItem(int index) {
+    const navBarIcons = [
+      (Images.imagesHomeSelected, Images.imagesHomeUnselected),
+      (Images.imagesSearchSelected, Images.imagesSearchUnselected),
+      (Images.imagesBookmarkSelected, Images.imagesBookmarkUnselected),
+    ];
+
+    final (selectedIcon, unSelectedIcon) = navBarIcons[index];
+
+    return BottomNavigationBarItem(
+      activeIcon: SvgPicture.asset(selectedIcon),
+      icon: SvgPicture.asset(unSelectedIcon),
+      label: '',
     );
   }
 }
