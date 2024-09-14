@@ -13,8 +13,10 @@ class ArticleTileInfo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'What To Expect From Star Wars in 2022',
+            'Leonardo DiCaprio Says ‘Don’t Look Up’ Speech Came From  A Place Of ‘Realizing The World Is Falling Apart’',
             style: AppStyles.styleBold14(context),
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: 10),
           Text(
