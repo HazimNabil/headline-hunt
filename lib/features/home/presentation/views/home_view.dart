@@ -43,6 +43,7 @@ class _HomeViewState extends State<HomeView> {
     return AppBar(
       backgroundColor: AppColors.backgroundColor,
       centerTitle: true,
+      elevation: 0,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
