@@ -5,22 +5,39 @@ import 'package:headline_hunt/core/utils/app_styles.dart';
 import 'package:headline_hunt/core/utils/images.dart';
 import 'package:headline_hunt/features/home/presentation/views/widgets/home_view_body.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  final bodies = const [
+    HomeViewBody(),
+    Text('Search'),
+    Text('Bookmark'),
+  ];
+
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: const HomeViewBody(),
+      body: bodies[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: AppColors.backgroundColor,
         selectedItemColor: AppColors.primaryColor,
         unselectedItemColor: AppColors.primaryColor,
+        currentIndex: currentIndex,
+        onTap: updateCurrentIndex,
         items: List.generate(3, buildNavBarItem),
       ),
     );
   }
+
+  void updateCurrentIndex(index) => setState(() => currentIndex = index);
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
