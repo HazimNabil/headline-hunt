@@ -1,5 +1,20 @@
 abstract class Images {
-  static const String imagesAppLogo = 'assets/images/app_logo.svg';
+  static const imagesAppLogo = "assets/images/app_logo.svg";
 
-  static const String imagesTestImage = 'assets/images/test_image.png';
+  static const imagesBookmarkSelected = "assets/images/bookmark_selected.svg";
+
+  static const imagesBookmarkUnselected =
+      "assets/images/bookmark_unselected.svg";
+
+  static const imagesClear = "assets/images/clear.svg";
+
+  static const imagesHomeSelected = "assets/images/home_selected.svg";
+
+  static const imagesHomeUnselected = "assets/images/home_unselected.svg";
+
+  static const imagesSearchSelected = "assets/images/search_selected.svg";
+
+  static const imagesSearchUnselected = "assets/images/search_unselected.svg";
+
+  static const imagesTestImage = "assets/images/test_image.png";
 }
