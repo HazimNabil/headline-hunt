@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:headline_hunt/features/home/presentation/views/widgets/article_tile.dart';
+import 'package:headline_hunt/features/home/presentation/views/widgets/article_list.dart';
 import 'package:headline_hunt/features/home/presentation/views/widgets/category_list.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -18,9 +18,7 @@ class HomeViewBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: SizedBox(height: 27),
         ),
-        SliverToBoxAdapter(
-          child: ArticleTile(),
-        ),
+        ArticleList(),
       ],
     );
   }
