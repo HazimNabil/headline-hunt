@@ -42,5 +42,9 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# API keys
+.env
+lib/core/utils/env.g.dart
+
 # VS Code settings
 .vscode
