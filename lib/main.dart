@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:headline_hunt/core/utils/app_colors.dart';
 import 'package:headline_hunt/core/utils/app_router.dart';
+import 'package:headline_hunt/core/utils/article_database.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await ArticleDatabase().initDatabase();
   runApp(
     DevicePreview(
       builder: (context) => const HeadlineHunt(),
