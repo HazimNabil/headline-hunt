@@ -32,7 +32,6 @@ dependencies:
   device_preview: ^1.2.0
   dio: ^5.7.0
   envied: ^0.5.4+1
-  equatable: ^2.0.5
   flutter:
     sdk: flutter
   flutter_animate: ^4.5.0
