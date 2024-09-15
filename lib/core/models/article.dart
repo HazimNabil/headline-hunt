@@ -1,12 +1,34 @@
-class Article {
+import 'package:hive_flutter/hive_flutter.dart';
+
+part 'article.g.dart';
+
+@HiveType(typeId: 0)
+class Article extends HiveObject {
+  @HiveField(0)
   final String id;
+
+  @HiveField(1)
   final String title;
+
+  @HiveField(2)
   final String description;
+
+  @HiveField(3)
   final String url;
+
+  @HiveField(4)
   final String author;
+
+  @HiveField(5)
   final String image;
+
+  @HiveField(6)
   final String language;
+
+  @HiveField(7)
   final String category;
+
+  @HiveField(8)
   final DateTime published;
 
   Article({
