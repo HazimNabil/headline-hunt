@@ -4,10 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:headline_hunt/core/utils/app_colors.dart';
 import 'package:headline_hunt/core/utils/app_router.dart';
 import 'package:headline_hunt/core/utils/article_database.dart';
+import 'package:headline_hunt/core/utils/service_locator.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await ArticleDatabase().initDatabase();
+  setupServiceLocator();
+  await locator.get<ArticleDatabase>().initDatabase();
   runApp(
     DevicePreview(
       builder: (context) => const HeadlineHunt(),
