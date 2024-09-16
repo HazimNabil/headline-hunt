@@ -34,7 +34,7 @@ class HomeRepoImpl implements HomeRepo {
 
   @override
   void toggleBookmark(Article article) {
-    if (database.isInDatabase(article.id)) {
+    if (article.isBookmarked) {
       database.removeArticle(article.id);
     } else {
       database.addArticle(article);
