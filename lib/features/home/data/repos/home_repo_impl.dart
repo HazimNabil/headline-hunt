@@ -14,7 +14,7 @@ class HomeRepoImpl implements HomeRepo {
   HomeRepoImpl({required this.apiService, required this.database});
 
   @override
-  Future<Either<ServerFailure, List<Article>>> fetchNewsByCategory(
+  Future<Either<ServerFailure, List<Article>>> fetchLatestNews(
     String category,
   ) async {
     var endPoint = 'latest-news?apiKey=${Env.apiKey}&category=$category';
