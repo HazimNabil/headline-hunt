@@ -2,28 +2,28 @@ import 'package:headline_hunt/core/models/article.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class ArticleDatabase {
-  late final Box<Article> articleBox;
-  final boxName = 'articleBox';
+  late final Box<Article> _articleBox;
+  final _boxName = 'articleBox';
 
   Future<void> initDatabase() async {
     await Hive.initFlutter();
     Hive.registerAdapter(ArticleAdapter());
-    articleBox = await Hive.openBox<Article>(boxName);
+    _articleBox = await Hive.openBox<Article>(_boxName);
   }
 
   void addArticle(Article article) {
-    articleBox.put(article.id, article);
+    _articleBox.put(article.id, article);
   }
 
   void removeArticle(String articleId) {
-    articleBox.delete(articleId);
+    _articleBox.delete(articleId);
   }
 
   List<Article> readArticles() {
-    return articleBox.values.toList();
+    return _articleBox.values.toList();
   }
 
   bool isInDatabase(String articleId) {
-    return articleBox.containsKey(articleId);
+    return _articleBox.containsKey(articleId);
   }
 }
