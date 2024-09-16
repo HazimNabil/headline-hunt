@@ -1,3 +1,4 @@
+import 'package:headline_hunt/core/utils/article_database.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 part 'article.g.dart';
@@ -32,7 +33,7 @@ class Article extends HiveObject {
   final DateTime publishedAt;
 
   @HiveField(9)
-  bool isBookmarked;
+  late bool isBookmarked;
 
   Article({
     required this.id,
@@ -44,8 +45,9 @@ class Article extends HiveObject {
     required this.language,
     required this.category,
     required this.publishedAt,
-    this.isBookmarked = false,
-  });
+  }) {
+    isBookmarked = ArticleDatabase().isInDatabase(id);
+  }
 
   factory Article.fromJson(Map<String, dynamic> json) {
     return Article(

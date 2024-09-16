@@ -26,8 +26,7 @@ class ArticleAdapter extends TypeAdapter<Article> {
       language: fields[6] as String,
       category: fields[7] as String,
       publishedAt: fields[8] as DateTime,
-      isBookmarked: fields[9] as bool,
-    );
+    )..isBookmarked = fields[9] as bool;
   }
 
   @override
