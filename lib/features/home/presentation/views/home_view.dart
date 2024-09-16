@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:headline_hunt/core/utils/app_colors.dart';
 import 'package:headline_hunt/core/utils/app_styles.dart';
 import 'package:headline_hunt/core/utils/images.dart';
+import 'package:headline_hunt/core/utils/service_locator.dart';
+import 'package:headline_hunt/features/home/data/repos/home_repo_impl.dart';
+import 'package:headline_hunt/features/home/presentation/manager/latest_news_cubit/latest_news_cubit.dart';
 import 'package:headline_hunt/features/home/presentation/views/widgets/home_view_body.dart';
 
 class HomeView extends StatefulWidget {
@@ -13,10 +17,15 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  final bodies = const [
-    HomeViewBody(),
-    Text('Search'),
-    Text('Bookmark'),
+  final bodies = [
+    BlocProvider(
+      create: (context) => LatestNewsCubit(
+        locator.get<HomeRepoImpl>(),
+      ),
+      child: const HomeViewBody(),
+    ),
+    const Text('Search'),
+    const Text('Bookmark'),
   ];
 
   int currentIndex = 0;
