@@ -29,7 +29,10 @@ class Article extends HiveObject {
   final String category;
 
   @HiveField(8)
-  final DateTime published;
+  final DateTime publishedAt;
+
+  @HiveField(9)
+  bool isBookmarked;
 
   Article({
     required this.id,
@@ -40,7 +43,8 @@ class Article extends HiveObject {
     required this.image,
     required this.language,
     required this.category,
-    required this.published,
+    required this.publishedAt,
+    this.isBookmarked = false,
   });
 
   factory Article.fromJson(Map<String, dynamic> json) {
@@ -53,7 +57,7 @@ class Article extends HiveObject {
       image: json['image'] as String,
       language: json['language'] as String,
       category: json['category'][0] as String,
-      published: DateTime.parse(json['published'] as String),
+      publishedAt: DateTime.parse(json['published'] as String),
     );
   }
 
@@ -67,7 +71,7 @@ class Article extends HiveObject {
       'image': image,
       'language': language,
       'category': category,
-      'published': published,
+      'published': publishedAt,
     };
   }
 }
