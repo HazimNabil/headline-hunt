@@ -11,24 +11,27 @@ class FailureWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Icon(
-            Icons.error_outline,
-            color: Colors.red,
-            size: 60,
-          ),
-          const SizedBox(height: 16),
-          Text(
-            errorMessage,
-            textAlign: TextAlign.center,
-            style: AppStyles.styleBold18(context).copyWith(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(
+              Icons.error_outline,
               color: Colors.red,
+              size: 60,
             ),
-          ),
-        ],
+            const SizedBox(height: 16),
+            Text(
+              errorMessage,
+              textAlign: TextAlign.center,
+              style: AppStyles.styleBold18(context).copyWith(
+                color: Colors.red,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

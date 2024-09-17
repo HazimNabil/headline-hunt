@@ -15,7 +15,8 @@ class ArticleListBuilder extends StatelessWidget {
         if (state is LatestNewsSuccess) {
           return ArticleList(articles: state.articles);
         } else if (state is LatestNewsFailure) {
-          return SliverToBoxAdapter(
+          return SliverFillRemaining(
+            hasScrollBody: false,
             child: FailureWidget(
               errorMessage: state.errorMessage,
             ),
