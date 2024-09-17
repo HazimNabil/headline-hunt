@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:headline_hunt/core/models/article.dart';
 import 'package:headline_hunt/core/utils/app_colors.dart';
 import 'package:headline_hunt/core/utils/app_styles.dart';
 import 'package:headline_hunt/core/utils/images.dart';
 
 class ArticleTileInfo extends StatelessWidget {
-  const ArticleTileInfo({super.key});
+  final Article article;
+
+  const ArticleTileInfo({super.key, required this.article});
 
   @override
   Widget build(BuildContext context) {
@@ -15,21 +18,21 @@ class ArticleTileInfo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Leonardo DiCaprio Says ‘Don’t Look Up’ Speech Came From  A Place Of ‘Realizing The World Is Falling Apart’',
+            article.title,
             style: AppStyles.styleBold14(context),
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: 10),
           Text(
-            'By Mark Daniel',
+            article.author,
             style: AppStyles.styleMedium13(context),
           ),
           const Spacer(),
           Row(
             children: [
               Text(
-                'Entertainment',
+                article.category,
                 style: AppStyles.styleBold13(context),
               ),
               const SizedBox(width: 10),
@@ -39,7 +42,7 @@ class ArticleTileInfo extends StatelessWidget {
               ),
               const SizedBox(width: 10),
               Text(
-                '5m ago',
+                article.publishedAt.day.toString(),
                 style: AppStyles.styleMedium13(context),
               ),
               const Spacer(),

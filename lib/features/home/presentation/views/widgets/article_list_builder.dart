@@ -13,7 +13,7 @@ class ArticleListBuilder extends StatelessWidget {
     return BlocBuilder<LatestNewsCubit, LatestNewsState>(
       builder: (context, state) {
         if (state is LatestNewsSuccess) {
-          return const ArticleList();
+          return ArticleList(articles: state.articles);
         } else if (state is LatestNewsFailure) {
           return SliverToBoxAdapter(
             child: FailureWidget(

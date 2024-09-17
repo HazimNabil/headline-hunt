@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../features/home/presentation/views/widgets/article_tile.dart';
+// import '../../features/home/presentation/views/widgets/article_tile.dart';
 
 class LoadingIndicator extends StatelessWidget {
   const LoadingIndicator({super.key});
@@ -16,7 +16,7 @@ class LoadingIndicator extends StatelessWidget {
         itemBuilder: (context, index) {
           return const Padding(
             padding: EdgeInsets.only(bottom: 20, left: 16, right: 16),
-            child: ArticleTile(),
+            // child: ArticleTile(),
           );
         },
       ),
