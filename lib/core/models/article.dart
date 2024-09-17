@@ -1,4 +1,5 @@
 import 'package:headline_hunt/core/utils/article_database.dart';
+import 'package:headline_hunt/core/utils/service_locator.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 part 'article.g.dart';
@@ -46,7 +47,7 @@ class Article extends HiveObject {
     required this.category,
     required this.publishedAt,
   }) {
-    isBookmarked = ArticleDatabase().isInDatabase(id);
+    isBookmarked = locator.get<ArticleDatabase>().isInDatabase(id);
   }
 
   factory Article.fromJson(Map<String, dynamic> json) {
