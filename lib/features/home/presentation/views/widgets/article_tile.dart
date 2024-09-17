@@ -1,10 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:headline_hunt/core/models/article.dart';
 import 'package:headline_hunt/core/utils/app_colors.dart';
 import 'package:headline_hunt/core/utils/app_router.dart';
 
+import 'article_tile_image.dart';
 import 'article_tile_info.dart';
 
 class ArticleTile extends StatelessWidget {
@@ -20,15 +20,7 @@ class ArticleTile extends StatelessWidget {
           onTap: () => context.push(AppRouter.detailsPath),
           child: Row(
             children: [
-              SizedBox(
-                width: 137,
-                height: 140,
-                child: CachedNetworkImage(
-                  imageUrl: article.image,
-                  fit: BoxFit.fill,
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
-                ),
-              ),
+              ArticleTileImage(image: article.image),
               const SizedBox(width: 10),
               Expanded(
                 child: ArticleTileInfo(article: article),
