@@ -10,7 +10,7 @@ class LatestNewsCubit extends Cubit<LatestNewsState> {
 
   LatestNewsCubit(this.homeRepo) : super(LatestNewsInitial());
 
-  void fetchLatestNews(String category) async {
+  void fetchLatestNews([String category = '']) async {
     emit(LatestNewsLoading());
     var result = await homeRepo.fetchLatestNews(category);
     result.fold(
