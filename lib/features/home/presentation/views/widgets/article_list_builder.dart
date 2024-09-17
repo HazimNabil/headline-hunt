@@ -21,9 +21,7 @@ class ArticleListBuilder extends StatelessWidget {
             ),
           );
         } else {
-          return const SliverToBoxAdapter(
-            child: LoadingIndicator(),
-          );
+          return const LoadingIndicator();
         }
       },
     );
