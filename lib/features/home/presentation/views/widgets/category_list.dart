@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:headline_hunt/features/home/presentation/manager/latest_news_cubit/latest_news_cubit.dart';
 import 'package:headline_hunt/features/home/presentation/views/widgets/category_item.dart';
 
 class CategoryList extends StatefulWidget {
@@ -10,14 +12,14 @@ class CategoryList extends StatefulWidget {
 
 class _CategoryListState extends State<CategoryList> {
   final categories = const [
-    'General',
-    'Business',
-    'Technology',
-    'Entertainment',
-    'Sports',
-    'Politics',
-    'Health',
-    'Science',
+    'general',
+    'business',
+    'technology',
+    'entertainment',
+    'sports',
+    'politics',
+    'health',
+    'science',
   ];
 
   int activeIndex = 0;
@@ -41,12 +43,18 @@ class _CategoryListState extends State<CategoryList> {
     return Padding(
       padding: EdgeInsets.only(right: isLast ? 0 : 10),
       child: GestureDetector(
-        onTap: () => setState(() => activeIndex = index),
+        onTap: () => changeCategory(index),
         child: CategoryItem(
           category: categories[index],
           isActive: activeIndex == index,
         ),
       ),
     );
+  }
+
+  void changeCategory(int index) {
+    setState(() => activeIndex = index);
+    var read = context.read<LatestNewsCubit>();
+    read.fetchLatestNews(categories[index]);
   }
 }
