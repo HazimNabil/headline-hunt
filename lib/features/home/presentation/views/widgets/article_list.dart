@@ -6,8 +6,7 @@ class ArticleList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: const NeverScrollableScrollPhysics(),
+    return SliverList.builder(
       itemCount: 10,
       itemBuilder: (context, index) {
         return const Padding(
