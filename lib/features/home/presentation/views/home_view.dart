@@ -21,7 +21,7 @@ class _HomeViewState extends State<HomeView> {
     BlocProvider(
       create: (context) => LatestNewsCubit(
         locator.get<HomeRepoImpl>(),
-      ),
+      )..fetchLatestNews(),
       child: const HomeViewBody(),
     ),
     const Text('Search'),
