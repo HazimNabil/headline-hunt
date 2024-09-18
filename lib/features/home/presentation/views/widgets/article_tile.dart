@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:headline_hunt/core/models/article.dart';
 import 'package:headline_hunt/core/utils/app_colors.dart';
 import 'package:headline_hunt/core/utils/app_router.dart';
+import 'package:headline_hunt/core/widgets/article_image.dart';
 
-import 'article_tile_image.dart';
 import 'article_tile_info.dart';
 
 class ArticleTile extends StatelessWidget {
@@ -20,7 +20,11 @@ class ArticleTile extends StatelessWidget {
           onTap: () => navigateToDetails(context),
           child: Row(
             children: [
-              ArticleTileImage(image: article.image),
+              ArticleImage(
+                imageUrl: article.image,
+                height: 140,
+                width: 137,
+              ),
               const SizedBox(width: 10),
               Expanded(
                 child: ArticleTileInfo(article: article),
