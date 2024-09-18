@@ -15,7 +15,7 @@ class DetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: const DetailsViewBody(),
+      body: DetailsViewBody(article: article),
     );
   }
 

@@ -1,23 +1,28 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:headline_hunt/core/utils/images.dart';
+import 'package:headline_hunt/core/models/article.dart';
 import 'package:headline_hunt/features/home/presentation/views/widgets/article_body.dart';
 
 class DetailsViewBody extends StatelessWidget {
-  const DetailsViewBody({super.key});
+  final Article article;
+
+  const DetailsViewBody({super.key, required this.article});
 
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.sizeOf(context).height;
     return ListView(
       children: [
-        Image.asset(
-          Images.imagesTestImage,
+        CachedNetworkImage(
+          imageUrl: article.image,
           height: screenHeight / 3.5,
           fit: BoxFit.fill,
         ),
-        const Padding(
-          padding: EdgeInsets.all(16),
-          child: ArticleBody(),
+        Padding(
+          padding: const EdgeInsets.all(16),
+          child: ArticleBody(
+            article: article,
+          ),
         ),
       ],
     );

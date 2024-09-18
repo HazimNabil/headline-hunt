@@ -1,34 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:headline_hunt/core/models/article.dart';
 import 'package:headline_hunt/core/utils/app_styles.dart';
 
 class ArticleBody extends StatelessWidget {
-  const ArticleBody({super.key});
+  final Article article;
+
+  const ArticleBody({super.key, required this.article});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Text(
-          'Leonardo DiCaprio Says ‘Don’t Look Up’ Speech Came From  A Place Of ‘Realizing The World Is Falling Apart’',
+          article.title,
           style: AppStyles.styleBold18(context),
         ),
         const SizedBox(height: 20),
         Row(
           children: [
             Text(
-              'By Andy Corby',
+              article.author,
               style: AppStyles.styleMedium13(context),
             ),
             const Spacer(),
             Text(
-              '1m ago',
+              article.publishedAt.day.toString(),
               style: AppStyles.styleMedium13(context),
             ),
           ],
         ),
         const SizedBox(height: 20),
         Text(
-          'Leonardo DiCaprio Says ‘Don’t Look Up’ Speech Came From  A Place Of ‘Realizing The World Is Falling Apart’',
+          article.description,
           style: AppStyles.styleRegular15(context),
         )
       ],
