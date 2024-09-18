@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:headline_hunt/core/models/article.dart';
 import 'package:headline_hunt/features/home/presentation/views/details_view.dart';
 import 'package:headline_hunt/features/home/presentation/views/home_view.dart';
 import 'package:headline_hunt/features/splash/presentation/views/splash_view.dart';
@@ -19,7 +20,9 @@ class AppRouter {
       ),
       GoRoute(
         path: detailsPath,
-        builder: (context, state) => const DetailsView(),
+        builder: (context, state) {
+          return DetailsView(article: state.extra as Article);
+        },
       ),
     ],
   );

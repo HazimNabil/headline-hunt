@@ -17,7 +17,7 @@ class ArticleTile extends StatelessWidget {
     return Column(
       children: [
         GestureDetector(
-          onTap: () => context.push(AppRouter.detailsPath),
+          onTap: () => navigateToDetails(context),
           child: Row(
             children: [
               ArticleTileImage(image: article.image),
@@ -33,6 +33,13 @@ class ArticleTile extends StatelessWidget {
           color: AppColors.secondaryBackgroundColor,
         ),
       ],
+    );
+  }
+
+  void navigateToDetails(BuildContext context) {
+    context.push(
+      AppRouter.detailsPath,
+      extra: article,
     );
   }
 }

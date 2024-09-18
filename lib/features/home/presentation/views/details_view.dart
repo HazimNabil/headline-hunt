@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:headline_hunt/core/models/article.dart';
 import 'package:headline_hunt/core/utils/app_colors.dart';
 import 'package:headline_hunt/core/utils/images.dart';
 import 'package:headline_hunt/features/home/presentation/views/widgets/details_view_body.dart';
 
 class DetailsView extends StatelessWidget {
-  const DetailsView({super.key});
+  final Article article;
+
+  const DetailsView({super.key, required this.article});
 
   @override
   Widget build(BuildContext context) {
