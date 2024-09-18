@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:headline_hunt/core/functions/format_date.dart';
 import 'package:headline_hunt/core/models/article.dart';
 import 'package:headline_hunt/core/utils/app_styles.dart';
 
@@ -24,7 +25,7 @@ class ArticleBody extends StatelessWidget {
             ),
             const Spacer(),
             Text(
-              article.publishedAt.day.toString(),
+              formatDate(article.publishedAt),
               style: AppStyles.styleMedium13(context),
             ),
           ],

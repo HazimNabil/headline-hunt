@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:headline_hunt/core/functions/format_date.dart';
 import 'package:headline_hunt/core/models/article.dart';
 import 'package:headline_hunt/core/utils/app_colors.dart';
 import 'package:headline_hunt/core/utils/app_styles.dart';
@@ -42,7 +43,7 @@ class ArticleTileInfo extends StatelessWidget {
               ),
               const SizedBox(width: 10),
               Text(
-                article.publishedAt.day.toString(),
+                formatDate(article.publishedAt),
                 style: AppStyles.styleMedium13(context),
               ),
               const Spacer(),
