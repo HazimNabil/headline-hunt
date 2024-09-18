@@ -32,10 +32,17 @@ class ArticleBody extends StatelessWidget {
         ),
         const SizedBox(height: 20),
         Text(
-          article.description,
+          handleEmptyDescription(),
           style: AppStyles.styleRegular15(context),
         )
       ],
     );
+  }
+
+  String handleEmptyDescription() {
+    if (article.description.isEmpty) {
+      return 'No description available.';
+    }
+    return article.description;
   }
 }
