@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:headline_hunt/core/utils/app_colors.dart';
-import 'package:headline_hunt/core/utils/app_styles.dart';
 import 'package:headline_hunt/core/utils/images.dart';
 import 'package:headline_hunt/core/utils/service_locator.dart';
 import 'package:headline_hunt/features/home/data/repos/home_repo_impl.dart';
 import 'package:headline_hunt/features/home/presentation/manager/latest_news_cubit/latest_news_cubit.dart';
 import 'package:headline_hunt/features/home/presentation/views/widgets/home_view_body.dart';
+
+import 'widgets/home_view_app_bar.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -33,7 +34,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context),
+      appBar: const HomeViewAppBar(),
       body: bodies[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: AppColors.backgroundColor,
@@ -48,25 +49,6 @@ class _HomeViewState extends State<HomeView> {
 
   void updateCurrentIndex(index) => setState(() => currentIndex = index);
 
-  AppBar buildAppBar(BuildContext context) {
-    return AppBar(
-      backgroundColor: AppColors.backgroundColor,
-      centerTitle: true,
-      elevation: 0,
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SvgPicture.asset(Images.imagesAppLogo),
-          const SizedBox(width: 10),
-          Text(
-            'Headline Hunt',
-            style: AppStyles.styleBold15(context),
-          ),
-        ],
-      ),
-    );
-  }
-
   BottomNavigationBarItem buildNavBarItem(int index) {
     const navBarIcons = [
       (Images.imagesHomeSelected, Images.imagesHomeUnselected),
@@ -74,11 +56,11 @@ class _HomeViewState extends State<HomeView> {
       (Images.imagesBookmarkSelected, Images.imagesBookmarkUnselected),
     ];
 
-    final (selectedIcon, unSelectedIcon) = navBarIcons[index];
+    final (selectedIcon, unselectedIcon) = navBarIcons[index];
 
     return BottomNavigationBarItem(
       activeIcon: SvgPicture.asset(selectedIcon),
-      icon: SvgPicture.asset(unSelectedIcon),
+      icon: SvgPicture.asset(unselectedIcon),
       label: '',
     );
   }
