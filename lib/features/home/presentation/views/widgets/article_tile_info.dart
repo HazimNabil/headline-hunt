@@ -5,12 +5,23 @@ import 'package:headline_hunt/core/models/article.dart';
 import 'package:headline_hunt/core/utils/app_colors.dart';
 import 'package:headline_hunt/core/utils/app_styles.dart';
 import 'package:headline_hunt/core/utils/images.dart';
+import 'package:headline_hunt/features/home/data/repos/home_repo.dart';
 
-class ArticleTileInfo extends StatelessWidget {
+class ArticleTileInfo extends StatefulWidget {
   final Article article;
+  final HomeRepo homeRepo;
 
-  const ArticleTileInfo({super.key, required this.article});
+  const ArticleTileInfo({
+    super.key,
+    required this.article,
+    required this.homeRepo,
+  });
 
+  @override
+  State<ArticleTileInfo> createState() => _ArticleTileInfoState();
+}
+
+class _ArticleTileInfoState extends State<ArticleTileInfo> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -19,21 +30,21 @@ class ArticleTileInfo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            article.title,
+            widget.article.title,
             style: AppStyles.styleBold14(context),
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: 10),
           Text(
-            article.author,
+            widget.article.author,
             style: AppStyles.styleMedium13(context),
           ),
           const Spacer(),
           Row(
             children: [
               Text(
-                article.category,
+                widget.article.category,
                 style: AppStyles.styleBold13(context),
               ),
               const SizedBox(width: 10),
@@ -43,15 +54,34 @@ class ArticleTileInfo extends StatelessWidget {
               ),
               const SizedBox(width: 10),
               Text(
-                formatDate(article.publishedAt),
+                formatDate(widget.article.publishedAt),
                 style: AppStyles.styleMedium13(context),
               ),
               const Spacer(),
-              SvgPicture.asset(Images.imagesBookmarkUnselected),
+              IconButton(
+                onPressed: toggleBookmark,
+                icon: getBookmarkIcon(),
+              ),
             ],
           ),
         ],
       ),
     );
+  }
+
+  void toggleBookmark() {
+    widget.homeRepo.toggleBookmark(widget.article);
+    setState(() {});
+  }
+
+  SvgPicture getBookmarkIcon() {
+    final String bookmarkIcon;
+    final isBookmarked = widget.homeRepo.isBookmarked(widget.article.id);
+    if (isBookmarked) {
+      bookmarkIcon = Images.imagesBookmarkSelected;
+    } else {
+      bookmarkIcon = Images.imagesBookmarkUnselected;
+    }
+    return SvgPicture.asset(bookmarkIcon);
   }
 }
