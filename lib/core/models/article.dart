@@ -1,5 +1,3 @@
-import 'package:headline_hunt/core/utils/article_database.dart';
-import 'package:headline_hunt/core/utils/service_locator.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 part 'article.g.dart';
@@ -33,9 +31,6 @@ class Article extends HiveObject {
   @HiveField(8)
   final DateTime publishedAt;
 
-  @HiveField(9)
-  late bool isBookmarked;
-
   Article({
     required this.id,
     required this.title,
@@ -46,9 +41,7 @@ class Article extends HiveObject {
     required this.language,
     required this.category,
     required this.publishedAt,
-  }) {
-    isBookmarked = locator.get<ArticleDatabase>().isInDatabase(id);
-  }
+  });
 
   factory Article.fromJson(Map<String, dynamic> json) {
     return Article(
@@ -67,11 +60,13 @@ class Article extends HiveObject {
   factory Article.dummy() {
     return Article(
       id: 'id',
-      title: "Week 3 NFL Power Rankings: 1-32 poll, plus the most important backup/role player for every team",
+      title:
+          "Week 3 NFL Power Rankings: 1-32 poll, plus the most important backup/role player for every team",
       description: 'description',
       url: 'url',
       author: 'NFL Nation',
-      image: 'https://a3.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0916%2Fnfl_power3_cr_16x9.jpg',
+      image:
+          'https://a3.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0916%2Fnfl_power3_cr_16x9.jpg',
       language: 'language',
       category: 'general',
       publishedAt: DateTime.parse('2024-09-17 16:44:29 +0000'),

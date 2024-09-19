@@ -2,14 +2,11 @@ import 'package:headline_hunt/core/models/article.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class ArticleDatabase {
-  late final Box<Article> _articleBox;
-  final _boxName = 'articleBox';
+  final Box<Article> _articleBox;
 
-  Future<void> initDatabase() async {
-    await Hive.initFlutter();
-    Hive.registerAdapter(ArticleAdapter());
-    _articleBox = await Hive.openBox<Article>(_boxName);
-  }
+  static const boxName = 'articleBox';
+
+  ArticleDatabase(this._articleBox);
 
   void addArticle(Article article) {
     _articleBox.put(article.id, article);

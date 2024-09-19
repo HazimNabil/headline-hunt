@@ -31,14 +31,18 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   Article toArticleModel(jsonItem) => Article.fromJson(jsonItem);
+  
+  @override
+  bool isBookmarked(String articleId) {
+    return database.isInDatabase(articleId);
+  }
 
   @override
   void toggleBookmark(Article article) {
-    if (article.isBookmarked) {
+    if (isBookmarked(article.id)) {
       database.removeArticle(article.id);
     } else {
       database.addArticle(article);
     }
-    article.isBookmarked = !article.isBookmarked;
   }
 }

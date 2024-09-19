@@ -26,13 +26,13 @@ class ArticleAdapter extends TypeAdapter<Article> {
       language: fields[6] as String,
       category: fields[7] as String,
       publishedAt: fields[8] as DateTime,
-    )..isBookmarked = fields[9] as bool;
+    );
   }
 
   @override
   void write(BinaryWriter writer, Article obj) {
     writer
-      ..writeByte(10)
+      ..writeByte(9)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -50,9 +50,7 @@ class ArticleAdapter extends TypeAdapter<Article> {
       ..writeByte(7)
       ..write(obj.category)
       ..writeByte(8)
-      ..write(obj.publishedAt)
-      ..writeByte(9)
-      ..write(obj.isBookmarked);
+      ..write(obj.publishedAt);
   }
 
   @override
