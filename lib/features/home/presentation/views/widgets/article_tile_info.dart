@@ -39,6 +39,8 @@ class _ArticleTileInfoState extends State<ArticleTileInfo> {
           Text(
             widget.article.author,
             style: AppStyles.styleMedium13(context),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
           const Spacer(),
           Row(
