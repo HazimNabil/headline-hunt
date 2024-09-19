@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:headline_hunt/core/utils/app_colors.dart';
+import 'package:headline_hunt/core/utils/app_router.dart';
 import 'package:headline_hunt/core/utils/app_styles.dart';
 
 class FullArticleButton extends StatelessWidget {
@@ -12,7 +14,7 @@ class FullArticleButton extends StatelessWidget {
         backgroundColor: AppColors.primaryColor,
         padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 12),
       ),
-      onPressed: () {},
+      onPressed: () => context.push(AppRouter.fullArticlePath),
       child: Text(
         'Read Full Article',
         style: AppStyles.styleBold15(context).copyWith(
