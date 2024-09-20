@@ -26,8 +26,10 @@ class DetailsViewBody extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 24),
-        const Center(
-          child: FullArticleButton(),
+        Center(
+          child: FullArticleButton(
+            articleUrl: article.url,
+          ),
         ),
       ],
     );

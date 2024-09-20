@@ -23,12 +23,18 @@ class AppRouter {
       GoRoute(
         path: detailsPath,
         builder: (context, state) {
-          return DetailsView(article: state.extra as Article);
+          return DetailsView(
+            article: state.extra as Article,
+          );
         },
       ),
       GoRoute(
         path: fullArticlePath,
-        builder: (context, state) => const FullArticleView(),
+        builder: (context, state) {
+          return FullArticleView(
+            articleUrl: state.extra as String,
+          );
+        },
       ),
     ],
   );
