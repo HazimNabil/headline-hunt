@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:headline_hunt/features/home/presentation/manager/latest_news_cubit/latest_news_cubit.dart';
 import 'package:headline_hunt/core/widgets/category_item.dart';
 
-class CategoryList extends StatefulWidget {
-  const CategoryList({super.key});
+class BookmarkCategoryList extends StatefulWidget {
+  const BookmarkCategoryList({super.key});
 
   @override
-  State<CategoryList> createState() => _CategoryListState();
+  State<BookmarkCategoryList> createState() => _BookmarkCategoryListState();
 }
 
-class _CategoryListState extends State<CategoryList> {
+class _BookmarkCategoryListState extends State<BookmarkCategoryList> {
   final categories = const [
     'general',
     'business',
@@ -54,7 +52,6 @@ class _CategoryListState extends State<CategoryList> {
 
   void changeCategory(int index) {
     setState(() => activeIndex = index);
-    var read = context.read<LatestNewsCubit>();
-    read.fetchLatestNews(categories[index]);
   }
+
 }
