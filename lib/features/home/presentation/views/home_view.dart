@@ -7,8 +7,6 @@ import 'package:headline_hunt/features/home/presentation/manager/latest_news_cub
 import 'package:headline_hunt/features/home/presentation/views/widgets/custom_nav_bar.dart';
 import 'package:headline_hunt/features/home/presentation/views/widgets/home_view_body.dart';
 
-import 'widgets/home_view_app_bar.dart';
-
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
@@ -33,7 +31,6 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const HomeViewAppBar(),
       body: _bodies[_currentIndex],
       bottomNavigationBar: CustomNavBar(
         onTap: selectTab,
