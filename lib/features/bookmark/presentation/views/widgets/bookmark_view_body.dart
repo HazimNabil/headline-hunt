@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'bookmark_view_app_bar.dart';
+
 class BookmarkViewBody extends StatelessWidget {
   const BookmarkViewBody({super.key});
 
@@ -7,7 +9,14 @@ class BookmarkViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SafeArea(
       child: CustomScrollView(
-        slivers: [],
+        slivers: [
+          SliverToBoxAdapter(
+            child: SizedBox(height: 22),
+          ),
+          SliverToBoxAdapter(
+            child: BookmarkViewAppBar(),
+          ),
+        ],
       ),
     );
   }
