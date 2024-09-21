@@ -6,6 +6,7 @@ import 'package:headline_hunt/features/home/data/repos/home_repo_impl.dart';
 import 'package:headline_hunt/features/home/presentation/manager/latest_news_cubit/latest_news_cubit.dart';
 import 'package:headline_hunt/features/home/presentation/views/widgets/custom_nav_bar.dart';
 import 'package:headline_hunt/features/home/presentation/views/widgets/home_view_body.dart';
+import 'package:headline_hunt/features/search/presentation/views/widgets/search_view_body.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -22,7 +23,7 @@ class _HomeViewState extends State<HomeView> {
       )..fetchLatestNews('general'),
       child: const HomeViewBody(),
     ),
-    const Text('Search'),
+    const SearchViewBody(),
     const BookmarkViewBody(),
   ];
 
