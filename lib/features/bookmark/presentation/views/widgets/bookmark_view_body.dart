@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:headline_hunt/core/widgets/article_list.dart';
 import 'package:headline_hunt/features/bookmark/presentation/manager/bookmarked_articles_cubit/bookmarked_articles_cubit.dart';
 
 import 'bookmark_category_list.dart';
 import 'bookmark_view_app_bar.dart';
+import 'bookmarked_articles_builder.dart';
 
 class BookmarkViewBody extends StatefulWidget {
   const BookmarkViewBody({super.key});
@@ -23,34 +23,28 @@ class _BookmarkViewBodyState extends State<BookmarkViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: CustomScrollView(
         slivers: [
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: SizedBox(height: 22),
           ),
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: BookmarkViewAppBar(),
           ),
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: SizedBox(height: 32),
           ),
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: BookmarkCategoryList(),
           ),
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: SizedBox(height: 27),
           ),
-          BlocBuilder<BookmarkedArticlesCubit, BookmarkedArticlesState>(
-            builder: (context, state) {
-              final loadedState = state as BookmarkedArticlesLoaded;
-              return ArticleList(
-                articles: loadedState.bookmarkedArticles,
-              );
-            },
-          ),
+          BookmarkedArticlesBuilder(),
         ],
       ),
     );
   }
 }
+
