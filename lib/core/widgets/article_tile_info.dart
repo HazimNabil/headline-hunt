@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:headline_hunt/core/functions/format_date.dart';
 import 'package:headline_hunt/core/models/article.dart';
@@ -6,6 +7,7 @@ import 'package:headline_hunt/core/utils/app_colors.dart';
 import 'package:headline_hunt/core/utils/app_styles.dart';
 import 'package:headline_hunt/core/utils/images.dart';
 import 'package:headline_hunt/features/bookmark/data/repos/bookmark_repo.dart';
+import 'package:headline_hunt/features/bookmark/presentation/manager/bookmarked_articles_cubit/bookmarked_articles_cubit.dart';
 
 class ArticleTileInfo extends StatefulWidget {
   final Article article;
@@ -74,6 +76,8 @@ class _ArticleTileInfoState extends State<ArticleTileInfo> {
   void toggleBookmark() {
     widget.bookmarkRepo.toggleBookmark(widget.article);
     setState(() {});
+    final cubit = context.read<BookmarkedArticlesCubit>();
+    cubit.fetchBookmarkedArticles();
   }
 
   SvgPicture getBookmarkIcon() {

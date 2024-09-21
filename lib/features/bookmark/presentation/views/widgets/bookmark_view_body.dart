@@ -6,8 +6,20 @@ import 'package:headline_hunt/features/bookmark/presentation/manager/bookmarked_
 import 'bookmark_category_list.dart';
 import 'bookmark_view_app_bar.dart';
 
-class BookmarkViewBody extends StatelessWidget {
+class BookmarkViewBody extends StatefulWidget {
   const BookmarkViewBody({super.key});
+
+  @override
+  State<BookmarkViewBody> createState() => _BookmarkViewBodyState();
+}
+
+class _BookmarkViewBodyState extends State<BookmarkViewBody> {
+  @override
+  void initState() {
+    super.initState();
+    final cubit = context.read<BookmarkedArticlesCubit>();
+    cubit.fetchBookmarkedArticles();
+  }
 
   @override
   Widget build(BuildContext context) {
