@@ -4,7 +4,7 @@ abstract class SizeConfig {
   static double getResponsiveFontSize(BuildContext context, double fontSize) {
     var width = MediaQuery.sizeOf(context).width;
 
-    var scaleFactor = width / 390;
+    var scaleFactor = width / 400;
     var responsiveFontSize = fontSize * scaleFactor;
     var lowerLimit = responsiveFontSize * 0.8;
     var upperLimit = responsiveFontSize * 1.20;

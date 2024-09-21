@@ -27,7 +27,7 @@ class _ArticleTileInfoState extends State<ArticleTileInfo> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 140,
+      height: 145,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
