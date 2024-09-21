@@ -17,4 +17,6 @@ abstract class Images {
   static const imagesSearchUnselected = "assets/images/search_unselected.svg";
 
   static const imagesTestImage = "assets/images/test_image.png";
+
+  static const imagesNoData = "assets/images/undraw_no_data.svg";
 }
