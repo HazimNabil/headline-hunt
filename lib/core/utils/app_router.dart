@@ -1,5 +1,9 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:headline_hunt/core/models/article.dart';
+import 'package:headline_hunt/core/utils/service_locator.dart';
+import 'package:headline_hunt/features/bookmark/data/repos/bookmark_repo_impl.dart';
+import 'package:headline_hunt/features/bookmark/presentation/manager/bookmarked_articles_cubit/bookmarked_articles_cubit.dart';
 import 'package:headline_hunt/features/home/presentation/views/details_view.dart';
 import 'package:headline_hunt/features/home/presentation/views/full_article_view.dart';
 import 'package:headline_hunt/features/home/presentation/views/home_view.dart';
@@ -18,7 +22,14 @@ class AppRouter {
       ),
       GoRoute(
         path: homePath,
-        builder: (context, state) => const HomeView(),
+        builder: (context, state) {
+          return BlocProvider(
+            create: (context) => BookmarkedArticlesCubit(
+              locator.get<BookmarkRepoImpl>(),
+            ),
+            child: const HomeView(),
+          );
+        },
       ),
       GoRoute(
         path: detailsPath,
