@@ -18,5 +18,5 @@ abstract class Images {
 
   static const imagesTestImage = "assets/images/test_image.png";
 
-  static const imagesNoData = "assets/images/undraw_no_data.svg";
+  static const imagesNoData = "assets/images/undraw_No_data.png";
 }
