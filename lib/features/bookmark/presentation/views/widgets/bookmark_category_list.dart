@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:headline_hunt/core/widgets/category_item.dart';
+import 'package:headline_hunt/features/bookmark/presentation/manager/bookmarked_articles_cubit/bookmarked_articles_cubit.dart';
 
 class BookmarkCategoryList extends StatefulWidget {
   const BookmarkCategoryList({super.key});
@@ -52,6 +55,7 @@ class _BookmarkCategoryListState extends State<BookmarkCategoryList> {
 
   void changeCategory(int index) {
     setState(() => activeIndex = index);
+    final cubit = context.read<BookmarkedArticlesCubit>();
+    cubit.fetchBookmarkedArticles(categories[index]);
   }
-
 }

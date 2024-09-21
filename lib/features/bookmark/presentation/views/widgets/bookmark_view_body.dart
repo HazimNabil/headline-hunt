@@ -18,7 +18,7 @@ class _BookmarkViewBodyState extends State<BookmarkViewBody> {
   void initState() {
     super.initState();
     final cubit = context.read<BookmarkedArticlesCubit>();
-    cubit.fetchBookmarkedArticles();
+    cubit.fetchBookmarkedArticles('general');
   }
 
   @override

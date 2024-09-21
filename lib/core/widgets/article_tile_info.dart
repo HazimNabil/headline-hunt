@@ -77,7 +77,7 @@ class _ArticleTileInfoState extends State<ArticleTileInfo> {
     widget.bookmarkRepo.toggleBookmark(widget.article);
     setState(() {});
     final cubit = context.read<BookmarkedArticlesCubit>();
-    cubit.fetchBookmarkedArticles();
+    cubit.fetchBookmarkedArticles(widget.article.category);
   }
 
   SvgPicture getBookmarkIcon() {
