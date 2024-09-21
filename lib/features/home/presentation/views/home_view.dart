@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:headline_hunt/core/utils/service_locator.dart';
+import 'package:headline_hunt/features/bookmark/data/repos/bookmark_repo_impl.dart';
+import 'package:headline_hunt/features/bookmark/presentation/manager/bookmarked_articles_cubit/bookmarked_articles_cubit.dart';
 import 'package:headline_hunt/features/bookmark/presentation/views/widgets/bookmark_view_body.dart';
 import 'package:headline_hunt/features/home/data/repos/home_repo_impl.dart';
 import 'package:headline_hunt/features/home/presentation/manager/latest_news_cubit/latest_news_cubit.dart';
@@ -23,7 +25,12 @@ class _HomeViewState extends State<HomeView> {
       child: const HomeViewBody(),
     ),
     const Text('Search'),
-    const BookmarkViewBody(),
+    BlocProvider(
+      create: (context) => BookmarkedArticlesCubit(
+        locator.get<BookmarkRepoImpl>(),
+      )..fetchBookmarkedArticles(),
+      child: const BookmarkViewBody(),
+    ),
   ];
 
   int _currentIndex = 0;
