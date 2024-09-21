@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:headline_hunt/core/models/article.dart';
-import 'package:headline_hunt/features/home/presentation/views/widgets/article_tile.dart';
+import 'package:headline_hunt/core/widgets/article_tile.dart';
 
 class ArticleList extends StatelessWidget {
   final List<Article> articles;

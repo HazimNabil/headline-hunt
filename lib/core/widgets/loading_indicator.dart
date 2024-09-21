@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:headline_hunt/core/models/article.dart';
-import 'package:headline_hunt/features/home/presentation/views/widgets/article_list.dart';
+import 'package:headline_hunt/core/widgets/article_list.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class LoadingIndicator extends StatelessWidget {
