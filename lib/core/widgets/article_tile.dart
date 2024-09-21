@@ -5,7 +5,7 @@ import 'package:headline_hunt/core/utils/app_colors.dart';
 import 'package:headline_hunt/core/utils/app_router.dart';
 import 'package:headline_hunt/core/utils/service_locator.dart';
 import 'package:headline_hunt/core/widgets/article_image.dart';
-import 'package:headline_hunt/features/home/data/repos/home_repo_impl.dart';
+import 'package:headline_hunt/features/bookmark/data/repos/bookmark_repo_impl.dart';
 
 import 'article_tile_info.dart';
 
@@ -31,7 +31,7 @@ class ArticleTile extends StatelessWidget {
               Expanded(
                 child: ArticleTileInfo(
                   article: article,
-                  homeRepo: locator.get<HomeRepoImpl>(),
+                  bookmarkRepo: locator.get<BookmarkRepoImpl>(),
                 ),
               ),
             ],

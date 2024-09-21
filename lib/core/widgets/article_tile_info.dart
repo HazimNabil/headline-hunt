@@ -5,16 +5,16 @@ import 'package:headline_hunt/core/models/article.dart';
 import 'package:headline_hunt/core/utils/app_colors.dart';
 import 'package:headline_hunt/core/utils/app_styles.dart';
 import 'package:headline_hunt/core/utils/images.dart';
-import 'package:headline_hunt/features/home/data/repos/home_repo.dart';
+import 'package:headline_hunt/features/bookmark/data/repos/bookmark_repo.dart';
 
 class ArticleTileInfo extends StatefulWidget {
   final Article article;
-  final HomeRepo homeRepo;
+  final BookmarkRepo bookmarkRepo;
 
   const ArticleTileInfo({
     super.key,
     required this.article,
-    required this.homeRepo,
+    required this.bookmarkRepo,
   });
 
   @override
@@ -72,13 +72,13 @@ class _ArticleTileInfoState extends State<ArticleTileInfo> {
   }
 
   void toggleBookmark() {
-    widget.homeRepo.toggleBookmark(widget.article);
+    widget.bookmarkRepo.toggleBookmark(widget.article);
     setState(() {});
   }
 
   SvgPicture getBookmarkIcon() {
     final String bookmarkIcon;
-    final isBookmarked = widget.homeRepo.isBookmarked(widget.article.id);
+    final isBookmarked = widget.bookmarkRepo.isBookmarked(widget.article.id);
     if (isBookmarked) {
       bookmarkIcon = Images.imagesBookmarkSelected;
     } else {

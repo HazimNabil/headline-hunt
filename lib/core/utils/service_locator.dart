@@ -28,8 +28,7 @@ void setupServiceLocator() {
 
   locator.registerSingleton(
     HomeRepoImpl(
-      apiService: locator.get<ApiService>(),
-      database: locator.get<HiveService>(),
+      locator.get<ApiService>(),
     ),
   );
 }

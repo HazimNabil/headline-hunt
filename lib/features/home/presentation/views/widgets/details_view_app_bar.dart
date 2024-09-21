@@ -4,16 +4,16 @@ import 'package:go_router/go_router.dart';
 import 'package:headline_hunt/core/models/article.dart';
 import 'package:headline_hunt/core/utils/app_colors.dart';
 import 'package:headline_hunt/core/utils/images.dart';
-import 'package:headline_hunt/features/home/data/repos/home_repo.dart';
+import 'package:headline_hunt/features/bookmark/data/repos/bookmark_repo.dart';
 
 class DetailsViewAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Article article;
-  final HomeRepo homeRepo;
+  final BookmarkRepo bookmarkRepo;
 
   const DetailsViewAppBar({
     super.key,
     required this.article,
-    required this.homeRepo,
+    required this.bookmarkRepo,
   });
 
   @override
@@ -39,7 +39,7 @@ class DetailsViewAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   SvgPicture getBookmarkIcon() {
     final String bookmarkIcon;
-    final isBookmarked = homeRepo.isBookmarked(article.id);
+    final isBookmarked = bookmarkRepo.isBookmarked(article.id);
     if (isBookmarked) {
       bookmarkIcon = Images.imagesBookmarkSelected;
     } else {
