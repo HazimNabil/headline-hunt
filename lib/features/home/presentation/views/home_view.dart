@@ -6,7 +6,7 @@ import 'package:headline_hunt/features/home/data/repos/home_repo_impl.dart';
 import 'package:headline_hunt/features/home/presentation/manager/latest_news_cubit/latest_news_cubit.dart';
 import 'package:headline_hunt/features/home/presentation/views/widgets/custom_nav_bar.dart';
 import 'package:headline_hunt/features/home/presentation/views/widgets/home_view_body.dart';
-import 'package:headline_hunt/features/search/data/repos/search_repo.dart';
+import 'package:headline_hunt/features/search/data/repos/search_repo_impl.dart';
 import 'package:headline_hunt/features/search/presentation/manager/search_news_cubit/search_news_cubit.dart';
 import 'package:headline_hunt/features/search/presentation/views/widgets/search_view_body.dart';
 
@@ -27,7 +27,7 @@ class _HomeViewState extends State<HomeView> {
     ),
     BlocProvider(
       create: (context) => SearchNewsCubit(
-        locator.get<SearchRepo>(),
+        locator.get<SearchRepoImpl>(),
       ),
       child: const SearchViewBody(),
     ),
