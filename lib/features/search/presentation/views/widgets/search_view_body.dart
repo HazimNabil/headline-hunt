@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:headline_hunt/core/widgets/article_list.dart';
 import 'package:headline_hunt/features/search/presentation/views/widgets/search_field.dart';
 
 class SearchViewBody extends StatelessWidget {
@@ -15,6 +16,10 @@ class SearchViewBody extends StatelessWidget {
           SliverToBoxAdapter(
             child: SearchField(),
           ),
+          SliverToBoxAdapter(
+            child: SizedBox(height: 30),
+          ),
+          ArticleList(articles: [])
         ],
       ),
     );
