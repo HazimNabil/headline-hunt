@@ -52,7 +52,9 @@ class Article extends HiveObject {
       author: json['author'] as String,
       image: json['image'] as String,
       language: json['language'] as String,
-      category: json['category'][0] as String,
+      category: (json['category'] as List).isEmpty
+          ? ''
+          : json['category'][0] as String,
       publishedAt: DateTime.parse(json['published'] as String),
     );
   }
