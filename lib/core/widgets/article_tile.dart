@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:headline_hunt/core/models/article.dart';
-import 'package:headline_hunt/core/utils/app_colors.dart';
 import 'package:headline_hunt/core/utils/app_router.dart';
 import 'package:headline_hunt/core/utils/service_locator.dart';
 import 'package:headline_hunt/core/widgets/article_image.dart';
@@ -36,10 +35,6 @@ class ArticleTile extends StatelessWidget {
               ),
             ],
           ),
-        ),
-        const SizedBox(height: 30),
-        const Divider(
-          color: AppColors.secondaryBackgroundColor,
         ),
       ],
     );
