@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:headline_hunt/features/bookmark/presentation/manager/bookmarked_articles_cubit/bookmarked_articles_cubit.dart';
 
-import 'bookmark_category_list.dart';
 import 'bookmark_view_app_bar.dart';
 import 'bookmarked_articles_builder.dart';
 
@@ -18,7 +17,7 @@ class _BookmarkViewBodyState extends State<BookmarkViewBody> {
   void initState() {
     super.initState();
     final cubit = context.read<BookmarkedArticlesCubit>();
-    cubit.fetchBookmarkedArticles('general');
+    cubit.fetchBookmarkedArticles();
   }
 
   @override
@@ -34,12 +33,6 @@ class _BookmarkViewBodyState extends State<BookmarkViewBody> {
           ),
           SliverToBoxAdapter(
             child: SizedBox(height: 32),
-          ),
-          SliverToBoxAdapter(
-            child: BookmarkCategoryList(),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(height: 27),
           ),
           BookmarkedArticlesBuilder(),
         ],

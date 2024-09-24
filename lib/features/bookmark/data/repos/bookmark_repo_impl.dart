@@ -8,11 +8,9 @@ class BookmarkRepoImpl implements BookmarkRepo {
   BookmarkRepoImpl(this._hiveService);
 
   @override
-  List<Article> getBookmarkedArticles(String category) {
+  List<Article> getBookmarkedArticles() {
     final bookmarkedArticles = _hiveService.readArticles();
-    isSameCategory(Article article) => article.category == category;
-    final filteredArticles = bookmarkedArticles.where(isSameCategory).toList();
-    return filteredArticles;
+    return bookmarkedArticles;
   }
 
   @override

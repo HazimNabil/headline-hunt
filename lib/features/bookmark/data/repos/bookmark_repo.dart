@@ -5,5 +5,5 @@ abstract class BookmarkRepo {
 
   void toggleBookmark(Article article);
 
-  List<Article> getBookmarkedArticles(String category);
+  List<Article> getBookmarkedArticles();
 }

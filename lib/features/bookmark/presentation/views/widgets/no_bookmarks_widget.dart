@@ -17,7 +17,7 @@ class NoBookmarksWidget extends StatelessWidget {
               Images.imagesNoData,
             ),
             Text(
-              'No bookmarks in this category',
+              'No bookmarks available',
               style: AppStyles.styleBold18(context),
             ),
             const SizedBox(height: 20)
