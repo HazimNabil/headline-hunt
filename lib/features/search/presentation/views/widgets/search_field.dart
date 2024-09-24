@@ -7,14 +7,22 @@ import 'package:headline_hunt/core/utils/app_styles.dart';
 import 'package:headline_hunt/core/utils/images.dart';
 import 'package:headline_hunt/features/search/presentation/manager/search_news_cubit/search_news_cubit.dart';
 
-class SearchField extends StatelessWidget {
+class SearchField extends StatefulWidget {
   const SearchField({super.key});
+
+  @override
+  State<SearchField> createState() => _SearchFieldState();
+}
+
+class _SearchFieldState extends State<SearchField> {
+  final _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: TextField(
+        controller: _controller,
         onSubmitted: (searchTerm) => triggerSearch(context, searchTerm),
         decoration: InputDecoration(
           hintText: 'Search',
@@ -42,7 +50,7 @@ class SearchField extends StatelessWidget {
           suffixIcon: Padding(
             padding: const EdgeInsets.only(right: 18.0),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () => _controller.clear(),
               icon: SvgPicture.asset(
                 Images.imagesClear,
                 colorFilter: const ColorFilter.mode(
@@ -58,6 +66,12 @@ class SearchField extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
   }
 
   Future<void> triggerSearch(BuildContext context, String searchTerm) {
