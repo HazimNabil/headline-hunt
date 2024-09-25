@@ -13,6 +13,25 @@ class SuffixClearIcon extends StatefulWidget {
 }
 
 class _SuffixClearIconState extends State<SuffixClearIcon> {
+  Color _iconColor = AppColors.secondaryColor;
+
+  @override
+  void initState() {
+    super.initState();
+    widget.controller.addListener(
+      changeIconColor,
+    );
+  }
+
+  void changeIconColor() {
+    if (widget.controller.text.isEmpty) {
+      _iconColor = AppColors.secondaryColor;
+    } else {
+      _iconColor = AppColors.primaryColor;
+    }
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,8 +40,8 @@ class _SuffixClearIconState extends State<SuffixClearIcon> {
         onPressed: () => widget.controller.clear(),
         icon: SvgPicture.asset(
           Images.imagesClear,
-          colorFilter: const ColorFilter.mode(
-            AppColors.secondaryColor,
+          colorFilter: ColorFilter.mode(
+            _iconColor,
             BlendMode.srcIn,
           ),
         ),
