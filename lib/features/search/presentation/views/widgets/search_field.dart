@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:headline_hunt/core/utils/app_colors.dart';
 import 'package:headline_hunt/core/utils/app_styles.dart';
-import 'package:headline_hunt/core/utils/images.dart';
 import 'package:headline_hunt/features/search/presentation/manager/search_news_cubit/search_news_cubit.dart';
+
+import 'prefix_search_icon.dart';
+import 'suffix_clear_icon.dart';
 
 class SearchField extends StatefulWidget {
   const SearchField({super.key});
@@ -34,31 +35,9 @@ class _SearchFieldState extends State<SearchField> {
           contentPadding: EdgeInsets.zero,
           filled: true,
           fillColor: AppColors.secondaryBackgroundColor,
-          prefixIcon: Padding(
-            padding: const EdgeInsets.only(left: 18.0, right: 10),
-            child: SvgPicture.asset(
-              Images.imagesSearchUnselected,
-              height: 17,
-              width: 17,
-              fit: BoxFit.scaleDown,
-              colorFilter: const ColorFilter.mode(
-                AppColors.secondaryColor,
-                BlendMode.srcIn,
-              ),
-            ),
-          ),
-          suffixIcon: Padding(
-            padding: const EdgeInsets.only(right: 18.0),
-            child: IconButton(
-              onPressed: () => _controller.clear(),
-              icon: SvgPicture.asset(
-                Images.imagesClear,
-                colorFilter: const ColorFilter.mode(
-                  AppColors.secondaryColor,
-                  BlendMode.srcIn,
-                ),
-              ),
-            ),
+          prefixIcon: const PrefixSearchIcon(),
+          suffixIcon: SuffixClearIcon(
+            controller: _controller,
           ),
           border: buildBorder(),
           enabledBorder: buildBorder(),
