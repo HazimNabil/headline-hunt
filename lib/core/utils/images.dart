@@ -22,5 +22,5 @@ abstract class Images {
 
   static const imagesMobileSearch = "assets/images/undraw_mobile_search.svg";
 
-  static const imagesNoData = "assets/images/undraw_No_data.png";
+  static const imagesNoData = "assets/images/undraw_no_data.svg";
 }
