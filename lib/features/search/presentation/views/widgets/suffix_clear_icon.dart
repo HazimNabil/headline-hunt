@@ -48,10 +48,4 @@ class _SuffixClearIconState extends State<SuffixClearIcon> {
       ),
     );
   }
-
-  @override
-  void dispose() {
-    super.dispose();
-    widget.controller.dispose();
-  }
 }
