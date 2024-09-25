@@ -4,7 +4,8 @@ Headline Hunt is a modern, feature-rich Flutter news application that keeps you 
 
 ## Features
 
-- **Latest News**: Stay informed with up-to-the-minute news articles.
+- **Animated Splash Screen**: Engage users with a custom-built, animated splash screen.
+- **Latest News**: Stay informed with up-to-date news articles.
 - **Category Filtering**: Easily filter news by categories of your interest.
 - **Article Details**: View comprehensive details for each news article.
 - **Web View Integration**: Read full articles within the app using an integrated web view.
@@ -16,12 +17,13 @@ Headline Hunt is a modern, feature-rich Flutter news application that keeps you 
 
 - **Flutter**: For cross-platform mobile app development.
 - **MVVM Architecture**: For a clean and maintainable codebase.
-- **Bloc**: For efficient state management.
+- **BLoC**: For efficient state management.
 - **Go Router**: For declarative routing and navigation.
 - **Dependency Injection**: For better management of dependencies.
 - **Hive**: For efficient local data storage.
 - **Envied**: For secure management of API keys.
 - **Skeletonizer**: For shimmer loading effects, enhancing user experience during data fetching.
+- **Flutter Animate**: For creating smooth animations, including the splash screen.
 
 ## Design Attribution
 
