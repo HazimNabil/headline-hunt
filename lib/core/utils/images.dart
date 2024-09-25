@@ -18,6 +18,8 @@ abstract class Images {
 
   static const imagesTestImage = "assets/images/test_image.png";
 
+  static const imagesError = "assets/images/undraw_error.svg";
+
   static const imagesMobileSearch = "assets/images/undraw_mobile_search.svg";
 
   static const imagesNoData = "assets/images/undraw_No_data.png";
