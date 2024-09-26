@@ -27,9 +27,7 @@ class ServerFailure extends Failure {
         );
 
       case DioExceptionType.badResponse:
-        return ServerFailure.fromResponse(
-          e.response as Response<Map<String, dynamic>>,
-        );
+        return ServerFailure.fromResponse(e.response!);
 
       case DioExceptionType.cancel:
         return ServerFailure('Request was cancelled. Please try again.');
@@ -46,7 +44,7 @@ class ServerFailure extends Failure {
     }
   }
 
-  factory ServerFailure.fromResponse(Response<Map<String, dynamic>> response) {
+  factory ServerFailure.fromResponse(Response response) {
     var statusCode = response.statusCode;
     var data = response.data;
 
