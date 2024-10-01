@@ -27,8 +27,10 @@ Headline Hunt is a modern, feature-rich Flutter news application that keeps you 
 
 ## Design Attribution
 
-The user interface design for this app is based on the "Simple News UI Kit - Developer Practice Kit iPhone 13" by Gen Chang, available on Figma Community. This design is used under the CC BY 4.0 license.
+The user interface of this app is inspired by the "Simple News UI Kit - Developer Practice Kit iPhone 13" by Gen Chang, available on Figma Community under the CC BY 4.0 license.
 
 - **Designer**: Gen Chang
 - **Design Link**: [Simple News UI Kit on Figma Community](https://www.figma.com/community/file/1058333301945142075/simple-news-ui-kit-developer-practice-kit-iphone-13)
 - **License**: CC BY 4.0
+
+Note: The implemented interface includes modifications to align with the app's specific features and functionality.
