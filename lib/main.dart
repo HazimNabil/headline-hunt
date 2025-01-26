@@ -6,17 +6,10 @@ import 'package:headline_hunt/core/utils/app_colors.dart';
 import 'package:headline_hunt/core/utils/app_router.dart';
 import 'package:headline_hunt/core/utils/news_bloc_observer.dart';
 import 'package:headline_hunt/core/utils/service_locator.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
-import 'core/models/article.dart';
-import 'core/utils/database_service.dart';
-
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Hive.initFlutter();
-  Hive.registerAdapter(ArticleAdapter());
-  await Hive.openBox<Article>(DatabaseService.boxName);
-  setupServiceLocator();
+  await setupServiceLocator();
   Bloc.observer = NewsBlocObserver();
   runApp(
     DevicePreview(
