@@ -11,6 +11,13 @@ class BookmarkedArticlesCubit extends Cubit<BookmarkedArticlesState> {
   BookmarkedArticlesCubit(this._bookmarkRepo)
       : super(BookmarkedArticlesInitial());
 
+  bool isBookmarked(String articleId) => _bookmarkRepo.isBookmarked(articleId);
+
+  void toggleBookmark(Article article) {
+    _bookmarkRepo.toggleBookmark(article);
+    fetchBookmarkedArticles();
+  }
+
   void fetchBookmarkedArticles() {
     final bookmarkedArticles = _bookmarkRepo.getBookmarkedArticles();
     emit(BookmarkedArticlesLoaded(bookmarkedArticles));

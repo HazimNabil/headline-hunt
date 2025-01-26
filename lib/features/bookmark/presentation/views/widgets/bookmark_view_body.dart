@@ -13,6 +13,7 @@ class BookmarkViewBody extends StatefulWidget {
 }
 
 class _BookmarkViewBodyState extends State<BookmarkViewBody> {
+
   @override
   void initState() {
     super.initState();
@@ -40,4 +41,3 @@ class _BookmarkViewBodyState extends State<BookmarkViewBody> {
     );
   }
 }
-

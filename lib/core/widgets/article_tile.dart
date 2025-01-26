@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:headline_hunt/core/models/article.dart';
 import 'package:headline_hunt/core/utils/app_router.dart';
-import 'package:headline_hunt/core/utils/service_locator.dart';
 import 'package:headline_hunt/core/widgets/article_image.dart';
-import 'package:headline_hunt/features/bookmark/data/repos/bookmark_repo_impl.dart';
 
 import 'article_tile_info.dart';
 
@@ -30,7 +28,6 @@ class ArticleTile extends StatelessWidget {
               Expanded(
                 child: ArticleTileInfo(
                   article: article,
-                  bookmarkRepo: locator.get<BookmarkRepoImpl>(),
                 ),
               ),
             ],

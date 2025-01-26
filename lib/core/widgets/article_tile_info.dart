@@ -6,24 +6,39 @@ import 'package:headline_hunt/core/models/article.dart';
 import 'package:headline_hunt/core/utils/app_colors.dart';
 import 'package:headline_hunt/core/utils/app_styles.dart';
 import 'package:headline_hunt/core/utils/images.dart';
-import 'package:headline_hunt/features/bookmark/data/repos/bookmark_repo.dart';
 import 'package:headline_hunt/features/bookmark/presentation/manager/bookmarked_articles_cubit/bookmarked_articles_cubit.dart';
 
 class ArticleTileInfo extends StatefulWidget {
   final Article article;
-  final BookmarkRepo bookmarkRepo;
 
-  const ArticleTileInfo({
-    super.key,
-    required this.article,
-    required this.bookmarkRepo,
-  });
+  const ArticleTileInfo({super.key, required this.article});
 
   @override
   State<ArticleTileInfo> createState() => _ArticleTileInfoState();
 }
 
 class _ArticleTileInfoState extends State<ArticleTileInfo> {
+  late final ValueNotifier<String> _bookmarkNotifier;
+
+  @override
+  void initState() {
+    super.initState();
+
+    final bookmarkCubit = context.read<BookmarkedArticlesCubit>();
+    final isBookmarked = bookmarkCubit.isBookmarked(widget.article.id);
+    final icon = isBookmarked
+        ? Images.imagesBookmarkSelected
+        : Images.imagesBookmarkUnselected;
+
+    _bookmarkNotifier = ValueNotifier(icon);
+  }
+
+  @override
+  void dispose() {
+    _bookmarkNotifier.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -62,9 +77,14 @@ class _ArticleTileInfoState extends State<ArticleTileInfo> {
                 style: AppStyles.styleMedium13(context),
               ),
               const Spacer(),
-              IconButton(
-                onPressed: toggleBookmark,
-                icon: getBookmarkIcon(),
+              ValueListenableBuilder(
+                valueListenable: _bookmarkNotifier,
+                builder: (context, value, child) {
+                  return IconButton(
+                    onPressed: toggleBookmark,
+                    icon: SvgPicture.asset(value),
+                  );
+                },
               ),
             ],
           ),
@@ -74,20 +94,12 @@ class _ArticleTileInfoState extends State<ArticleTileInfo> {
   }
 
   void toggleBookmark() {
-    widget.bookmarkRepo.toggleBookmark(widget.article);
-    setState(() {});
     final cubit = context.read<BookmarkedArticlesCubit>();
-    cubit.fetchBookmarkedArticles();
-  }
-
-  SvgPicture getBookmarkIcon() {
-    final String bookmarkIcon;
-    final isBookmarked = widget.bookmarkRepo.isBookmarked(widget.article.id);
-    if (isBookmarked) {
-      bookmarkIcon = Images.imagesBookmarkSelected;
+    if (cubit.isBookmarked(widget.article.id)) {
+      _bookmarkNotifier.value = Images.imagesBookmarkUnselected;
     } else {
-      bookmarkIcon = Images.imagesBookmarkUnselected;
+      _bookmarkNotifier.value = Images.imagesBookmarkSelected;
     }
-    return SvgPicture.asset(bookmarkIcon);
+    cubit.toggleBookmark(widget.article);
   }
 }

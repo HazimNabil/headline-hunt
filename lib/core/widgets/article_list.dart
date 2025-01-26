@@ -19,7 +19,10 @@ class ArticleList extends StatelessWidget {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.only(bottom: 10, left: 16, right: 16),
-          child: ArticleTile(article: articles[index]),
+          child: ArticleTile(
+            key: Key(articles[index].id),
+            article: articles[index],
+          ),
         );
       },
     );
