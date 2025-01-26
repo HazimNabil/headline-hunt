@@ -1,12 +1,12 @@
 import 'package:headline_hunt/core/models/article.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-class HiveService {
+class DatabaseService {
   final Box<Article> _articleBox;
 
   static const boxName = 'articleBox';
 
-  HiveService(this._articleBox);
+  DatabaseService(this._articleBox);
 
   void addArticle(Article article) {
     _articleBox.put(article.id, article);

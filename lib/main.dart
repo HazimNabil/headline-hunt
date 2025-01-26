@@ -9,13 +9,13 @@ import 'package:headline_hunt/core/utils/service_locator.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'core/models/article.dart';
-import 'core/utils/hive_service.dart';
+import 'core/utils/database_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   Hive.registerAdapter(ArticleAdapter());
-  await Hive.openBox<Article>(HiveService.boxName);
+  await Hive.openBox<Article>(DatabaseService.boxName);
   setupServiceLocator();
   Bloc.observer = NewsBlocObserver();
   runApp(
